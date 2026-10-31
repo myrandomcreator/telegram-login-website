@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Community Access</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      font-family: Arial, sans-serif;
+      color: #172033;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #e8f1ff;
+      color: #2675e8;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin: 0 0 10px;
+    }
+
+    .description {
+      color: #667085;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .notice {
+      padding: 12px;
+      background: #fff7e6;
+      border: 1px solid #ffe1a6;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #815b12;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d0d5dd;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid #2675e8;
+      border-color: #2675e8;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      background: #2675e8;
+      border: none;
+      border-radius: 9px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #155fc7;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      color: #667085;
+      line-height: 1.5;
+    }
+
+    #message {
+      color: #b42318;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <div class="logo" aria-hidden="true">➜</div>
+
+    <h1>Join Our Telegram Community</h1>
+
+    <p class="description">
+      Enter your display name below to continue to our Telegram bot.
+    </p>
+
+    <div class="notice">
+      <strong>Demo website:</strong>
+      This form does not create a real account or verify identity.
+      Do not enter passwords or sensitive information.
+      Your display name is not saved or transmitted.
+    </div>
+
+    <form id="joinForm">
+      <label for="displayName">Display Name</label>
+
+      <input
+        type="text"
+        id="displayName"
+        name="displayName"
+        placeholder="Enter your display name"
+        maxlength="60"
+        autocomplete="nickname"
+        required
+      >
+
+      <button type="submit">
+        Continue to Telegram
+      </button>
+
+      <div id="message" role="status" aria-live="polite"></div>
+    </form>
+
+    <p class="footer">
+      Continue to open our Telegram bot.
+    </p>
+  </main>
+
+  <script>
+    const TELEGRAM_BOT_URL = "https://t.me/Trialmetrobot";
+
+    document
+      .getElementById("joinForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const displayName = document
+          .getElementById("displayName")
+          .value
+          .trim();
+
+        const message = document.getElementById("message");
+
+        if (!displayName) {
+          message.textContent = "Please enter your display name.";
+          return;
+        }
+
+        // This demo does not collect or store account credentials.
+        window.location.href = TELEGRAM_BOT_URL;
+      });
+  </script>
+</body>
+        </html>
+        
